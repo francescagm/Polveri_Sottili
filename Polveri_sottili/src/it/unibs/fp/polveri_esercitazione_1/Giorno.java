@@ -4,10 +4,10 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.temporal.WeekFields;
 
-public class Giorno {
+public class Giorno implements ControlloAmbientale {
 	
 	//private static  DayOfWeek giorno;
-	private int campione;
+	private static int campione;
 	private String miusraSI = "µg/m³";
 	private String PM10 = campione + miusraSI;
 	private static WeekFields giorno = WeekFields.of(DayOfWeek.MONDAY,7);
@@ -28,7 +28,7 @@ public class Giorno {
 		Giorno.giorno = giorno;
 	}
 
-	public int getCampione() {
+	public static int getCampione() {
 		return campione;
 	}
 
@@ -40,6 +40,25 @@ public class Giorno {
 	public String toString() {
 		return "Giorno [giorno =" + giorno + ",  PM10=" + PM10 + "]";
 	}
+	public void campionamento(WeekFields giorno, int campione) {
+       this.giorno = giorno;
+       this.campione=campione;
+		
+	}
+	public String getPM10() {
+		return PM10;
+	}
 
-	
+	public void setPM10(String PM10) {
+		PM10 = PM10;
+	}
+
+	public void allarmePicco() {};
+    public void allarmeMedio() {};
+	public void campionamento() {}
+
+	public static Giorno newIstance(WeekFields giorno2, int campione2) {
+		// TODO Auto-generated method stub
+		return null;
+	};
 }
