@@ -1,25 +1,29 @@
 package it.unibs.fp.polveri_esercizio;
 
 import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
 import java.util.ArrayList;
+
+import it.unibs.fp.mylib.InputDati;
 
 public class Settimana implements ControlloAmbientale {
 	private ArrayList<Giorno>settimana = new ArrayList<>();
 	private static final int  SETTIMANA_STANDARD = WeekFields.of(DayOfWeek.MONDAY,7).getMinimalDaysInFirstWeek();
 	private static final int WARNING_MEDIA = 50;
 	private static final int WARNING_PICCO = 75;
+	private static final int ANNO_MINIMO = 1950;
+	private static final String RICHIESTA_NUM_SETTIMANA = "inserisci il numero della settimana nel anno" ;
+	private static final int MAX_SETTIMANE = 53;
+	private static final String RICHIESTA_ANNO = "insrisci anno riferimento";
 	private int NUM_SETTIMANA_ANNO;
 	private ArrayList<Integer> unaSettimana;
 	private int media_settimana;
 	private int picco_Settimana;
+	
 	public Settimana() {
-	//String WARNING_MEDIA="";
-	//String WARNING_PICCO="";
-	
-	
-	
-	
+
 	
 	settimana = new ArrayList<>(SETTIMANA_STANDARD);
 		
@@ -32,6 +36,29 @@ public class Settimana implements ControlloAmbientale {
 	unaSettimana.add(settimana.get(i).getCampione());
     }
 	}
+	public void  rileva()
+	{
+		  WeekFields setSettimanaStandard = WeekFields.of(DayOfWeek.MONDAY,1); 
+		  TemporalField settimaDelAnno = setSettimanaStandard.weekOfYear(); 
+		  LocalDate dataInput = LocalDate.of(2020,5, 15); //data diinzio miurazioni 
+		  int numSettimanaAnnoPerGiorno =  dataInput.get(settimaDelAnno); 
+		  //DayOfWeek  giornoDellaSettimana =dataInput .getDayOfWeek();
+		  //int numeroGiornoDellaSettimana = dataInput.getDayOfWeek().getValue();
+		  
+		//int anno = InputDati.leggiInteroConMinimo(RICHIESTA_ANNO, ANNO_MINIMO);
+		//int numeroSettimana = InputDati.leggiIntero(RICHIESTA_NUM_SETTIMANA,1,MAX_SETTIMANE);
+	    // qui io vorrei creare un inputo con leggi data ...e dalla data indentificare numero settimana e tutto il resto ma per ora faccio cosi 
+		for (int i = 0; i <settimana.size(); i++)
+			 {
+		    Giorno giorno = null;
+		    int campione = 0;
+			settimana.add(Giorno.newIstance(giorno, campione));
+			 }
+		
+		 }
+		
+	
+	
 	
 	public int campioneMedio() {
 	int totaleCampioniSettimanali =0;

@@ -3,11 +3,14 @@ package it.unibs.fp.polveri_esercizio;
 import java.sql.Time;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.Year;
 import java.time.temporal.Temporal;
 import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
 
-public class Giorno {
+import it.unibs.fp.mylib.InputDati;
+
+public class Giorno implements ControlloAmbientale {
 	
 	private  int campione;
 	private String miusraSI = "µg/m³";
@@ -42,6 +45,16 @@ public class Giorno {
 		PM10 = pM10;
 		this.giorno_settimana = giorno_settimana;
 	}
+	
+	// metodo rilevazione giorno da cui si parte con le rivlevazioni settimanali vedo se lasciarlo cosi oppure fare settimana e basta 
+	
+	public void  rileva() {
+	char  giornoInizio  = InputDati.leggiChar("inserisci data inziorilevazioni");
+	LocalDate giornoInzio = LocalDate.of(2020,5, 15);
+	// iserire dun giorno da una data che ritorna poi settimana dell anno e legge data ;
+	
+	}
+	
 
 
 	public int getCampione() {
@@ -92,6 +105,49 @@ public class Giorno {
 	public void setNum_Settimana_Anno(int num_Settimana_Anno) {
 		this.num_Settimana_Anno = num_Settimana_Anno;
 	}
+
+
+	public static Giorno newIstance(Giorno giorno, int campione) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public boolean allarmeMedio() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public boolean allarmePicco() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public int picco() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public int campioneMedio() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public void campionamento() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	
 	
 	

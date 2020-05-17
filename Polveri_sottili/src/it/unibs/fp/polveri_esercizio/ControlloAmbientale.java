@@ -6,4 +6,5 @@ public interface ControlloAmbientale {
 	public int picco();
 	public int campioneMedio();
 	public void campionamento();
+	public void  rileva();
 }
