@@ -1,11 +1,11 @@
-package it.unibs.fp.polveri_esercitazione;
+package it.unibs.fp.polveri_esercizio;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
 
-public class Polveri_Main {
+public class Polveri_Main2 {
 
 	public static void main(String[] args) {
 		

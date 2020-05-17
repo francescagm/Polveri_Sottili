@@ -1,12 +1,6 @@
 package it.unibs.fp.polveri_esercizio;
 
-import java.sql.Time;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.Year;
-import java.time.temporal.Temporal;
-import java.time.temporal.TemporalField;
-import java.time.temporal.WeekFields;
 
 import util.mylib.*;
 
