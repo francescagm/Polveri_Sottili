@@ -5,8 +5,7 @@ import java.time.LocalDate;
 import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
 import java.util.ArrayList;
-
-import it.unibs.fp.mylib.InputDati;
+import util.mylib.*;
 
 public class Settimana implements ControlloAmbientale {
 	private ArrayList<Giorno>settimana = new ArrayList<>();

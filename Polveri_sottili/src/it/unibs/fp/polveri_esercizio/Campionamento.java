@@ -1,6 +1,6 @@
 package it.unibs.fp.polveri_esercizio;
 
-import it.unibs.fp.mylib.MyMenu;
+import util.mylib.*;
 
 public class Campionamento {
 	
