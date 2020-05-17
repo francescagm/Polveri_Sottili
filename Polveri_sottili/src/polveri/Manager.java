@@ -7,8 +7,7 @@ public class Manager {
 	private static int numero;
 	private static final String INTESTAZIONE_MENU = "" + numero;
 	private static final String[] VOCI_MENU = {"","",};
-	private static final  String miusraSI = "µg/m³";
-	private final  static String PM10 = campione + miusraSI;
+	public static final  String miusraSI = "µg/m³";
 	private static final int ANNO_MINIMO = 1950;
 	
     
