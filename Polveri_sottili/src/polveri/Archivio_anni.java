@@ -13,7 +13,10 @@ public class Archivio_anni {
 		if(!contiene(nuovo_anno))
 		return anni_archiviati.add(new Anno(nuovo_anno));
 		return false;
-
+	}
+	
+	public static boolean inserisci_anno(Anno anno) {
+		return inserisci_anno(anno.getAnno_riferimento());
 	}
 
 	public static int cercaPosAnno(int anno_daCercare) {

@@ -6,17 +6,12 @@ import java.time.LocalDate;
 import util.mylib.*;
 
 public class Manager {
-	
-	private static final int NUMERO_SETTIMANE_ANNO = 53;
-	private static final int NUMERO_MINIMO_SETTIMANA = 1;
-	private static final String NUMERO_SETTIMANA = "inserire il numero della settimana nell'anno di riferimento";
-	private static final String INSERIRE_ANNO = "inserire anno di riferimento del campionamento ";
-	private static final int ULTIMO_ANNO = LocalDate.now().getYear();
+
 	private static int numero;
 	private static final String INTESTAZIONE_MENU = "" + numero;
 	private static final String[] VOCI_MENU = {"","",};
 	public static final  String miusraSI = "µg/m³";
-	private static final int ANNO_MINIMO = 1950;
+
 
     
     public void rilevazioni() {
@@ -31,7 +26,6 @@ public class Manager {
 				
 			case 1:
 				System.out.println("inserisci campioni settimana per controllo");
-				/// prende una settimana la legge e notifica allarmi 
 				
 				break;
 			case 2:
@@ -55,9 +49,12 @@ public class Manager {
 //			
 //    }
     
-    public static void creaAnno() {
-    int anno=InputDati.leggiIntero(INSERIRE_ANNO, ANNO_MINIMO, ULTIMO_ANNO);
-    Archivio_anni.inserisci_anno(anno);
+    public static void inserisciAnno() {
+  
+    if(Archivio_anni.inserisci_anno(UtilPolveriSottili.creaAnno()))
+    	System.out.println("Anno creato correttamente");
+    else System.out.println("Impossibile aggiungere l'anno, in quanto gia' presente nell archivio");
+    
     }
 
 }

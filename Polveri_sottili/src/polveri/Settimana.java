@@ -2,9 +2,9 @@ package polveri;
 
 public class Settimana {
 
-	private static final String MEDIA_TRA_CAMPIONI = "La media dei campioni settimanale e' stata di ";
+	private static final String MEDIA_TRA_CAMPIONI = "\nLa media dei campioni settimanale e' stata di ";
 	private static final String WARNING_SUPERATA_SOGLIA_MEDIA = "\n WARNING! superata la soglia di sicurezza media per la settimana (";
-	private static final String IMPOSSIBILE_COSTRUIRE_SETTIMANA = "impossibile costruire una settimana con giorni diversi da 7";
+	private static final String IMPOSSIBILE_COSTRUIRE_SETTIMANA = "Impossibile costruire una settimana con giorni diversi da 7";
 	private static final String PICCO_TRA_CAMPIONI = "\nIl picco tra i campioni della settimana e' stato ";
 	private static final String WARNING_SUPERATA_SOGLIA_MASSIMA = "\n WARNING! superata la soglia di sicurezza massima per la settimana (";
 

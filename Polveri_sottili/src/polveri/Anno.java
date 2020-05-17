@@ -7,7 +7,9 @@ public class Anno {
 	private ArrayList<Settimana> settimane;
 	public static final int NUMERO_SETTIMANE_ANNO = 53;
 	private int anno_riferimento;
-    private int media_annuale;
+	private int somma_medie;
+	private Settimana settConPiccoPiuAlto;
+
 	public int getAnno_riferimento() {
 		return anno_riferimento;
 	}
@@ -19,8 +21,11 @@ public class Anno {
 	}
 
 	public boolean inserisciSettimana(Settimana settimana) {
-		if (NUMERO_SETTIMANE_ANNO >= settimane_Inserite())
+		if (NUMERO_SETTIMANE_ANNO >= settimane_Inserite()) {
+			calcolasettConPiccoPiuAlto(settimana);
+			somma_medie += settimana.getMedia_settimana();
 			return settimane.add(settimana);
+		}
 		return false;
 
 	}
@@ -39,17 +44,39 @@ public class Anno {
 		if (existSettimana(numero_settimana)) {
 			settimane.remove(numero_settimana - 1);
 			settimane.add(numero_settimana - 1, settimana);
+			ricalcolaSommaMedia();
+			ricalcolaSettConPiccoPiuAlto();
 			return true;
 		}
 		return false;
 	}
-	public void mediaAnnuale() {
-		int totaleCapioniSettimana =0;
+
+	private void ricalcolaSommaMedia() {
+		int totaleCapioniSettimana = 0;
 		for (int i = 0; i < settimane.size(); i++) {
-		totaleCapioniSettimana+=settimane.get(i).getMedia_settimana();		
+			totaleCapioniSettimana += settimane.get(i).getMedia_settimana();
 		}
-		media_annuale = Math.round(totaleCapioniSettimana/settimane.size());
-	} 
-	
+		somma_medie = totaleCapioniSettimana;
+	}
+
+	private void calcolasettConPiccoPiuAlto(Settimana settimana) {
+		if (this.settConPiccoPiuAlto == null)
+			this.settConPiccoPiuAlto = settimana;
+		else {
+			if (settimana.getPicco_Settimana() > this.settConPiccoPiuAlto.getPicco_Settimana())
+				this.settConPiccoPiuAlto = settimana;
+		}
+	}
+
+	private void ricalcolaSettConPiccoPiuAlto() {
+		settConPiccoPiuAlto = null;
+		for (Settimana settimana : settimane) {
+			calcolasettConPiccoPiuAlto(settimana);
+		}
+	}
+
+	public int getMedia_annuale() {
+		return Math.round(somma_medie / settimane.size());
+	}
 
 }
