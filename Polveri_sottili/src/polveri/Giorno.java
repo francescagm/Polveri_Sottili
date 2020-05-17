@@ -1,0 +1,5 @@
+package polveri;
+
+public enum Giorno {LUNENDI,MARTEDI,MERCOLEDI,GIOVEDI,VENERDI,SABATO,DOMENICA
+
+}

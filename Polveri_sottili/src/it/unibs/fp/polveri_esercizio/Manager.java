@@ -2,7 +2,7 @@ package it.unibs.fp.polveri_esercizio;
 
 import util.mylib.*;
 
-public class Campionamento {
+public class Manager {
 	
 	private static int numero;
 	private static final String INTESTAZIONE_MENU = "" + numero;
