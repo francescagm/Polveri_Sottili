@@ -7,7 +7,7 @@ public class Anno {
 	private ArrayList<Settimana> settimane;
 	public static final int NUMERO_SETTIMANE_ANNO = 53;
 	private int anno_riferimento;
-
+    private int media_annuale;
 	public int getAnno_riferimento() {
 		return anno_riferimento;
 	}
@@ -43,5 +43,13 @@ public class Anno {
 		}
 		return false;
 	}
+	public void mediaAnnuale() {
+		int totaleCapioniSettimana =0;
+		for (int i = 0; i < settimane.size(); i++) {
+		totaleCapioniSettimana+=settimane.get(i).getMedia_settimana();		
+		}
+		media_annuale = Math.round(totaleCapioniSettimana/settimane.size());
+	} 
+	
 
 }
