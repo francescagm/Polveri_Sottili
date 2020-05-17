@@ -13,7 +13,7 @@ public class Settimana implements ControlloAmbientale {
 	private static final int  SETTIMANA_STANDARD = WeekFields.of(DayOfWeek.MONDAY,7).getMinimalDaysInFirstWeek();
 	private static final int WARNING_MEDIA = 50;
 	private static final int WARNING_PICCO = 75;
-	private static final int ANNO_MINIMO = 1950;
+	private static final int ANNO_MINIMO = 1950;// questo volevo usare la data direttamente 
 	private static final String RICHIESTA_NUM_SETTIMANA = "inserisci il numero della settimana nel anno" ;
 	private static final int MAX_SETTIMANE = 53;
 	private static final String RICHIESTA_ANNO = "insrisci anno riferimento";
