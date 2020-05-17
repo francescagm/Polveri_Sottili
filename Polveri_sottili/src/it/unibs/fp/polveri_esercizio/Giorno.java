@@ -8,7 +8,7 @@ import java.time.temporal.Temporal;
 import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
 
-import it.unibs.fp.mylib.InputDati;
+import util.mylib.*;
 
 public class Giorno implements ControlloAmbientale {
 	
