@@ -138,7 +138,7 @@ public class Anno {
 	 * @return media annuale
 	 */
 	public int getMedia_annuale() {
-		return Math.round(somma_medie / settimane.size());
+		return Math.round(somma_medie / (Settimana.GIORNI_SETTIMANA*settimane.size()));
 	}
 	/** @return {@linkplain String} media PM10 dell'anno di interesse */
 	public String toString() {
