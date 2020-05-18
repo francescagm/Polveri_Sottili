@@ -79,4 +79,9 @@ public class Anno {
 		return Math.round(somma_medie / settimane.size());
 	}
 
+	public String toString() {
+		return String.format("Anno %d, settimane inserite %d. \nLa media di PM10 per quest'anno fin'ora e' %d%s",
+				getAnno_riferimento(), settimane_Inserite(), getMedia_annuale(), UtilPolveriSottili.miusraSI);
+	}
+
 }

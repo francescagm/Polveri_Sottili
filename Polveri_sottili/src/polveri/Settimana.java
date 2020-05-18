@@ -1,6 +1,6 @@
 package polveri;
 
-import java.util.ArrayList;
+
 
 
 /**
@@ -16,7 +16,7 @@ public class Settimana {
 	private static final String IMPOSSIBILE_COSTRUIRE_SETTIMANA = "Impossibile costruire una settimana con giorni diversi da 7";
 	private static final String PICCO_TRA_CAMPIONI = "\nIl picco tra i campioni della settimana e' stato ";
 	private static final String WARNING_SUPERATA_SOGLIA_MASSIMA = "\n WARNING! superata la soglia di sicurezza massima per la settimana (";
-	/** {@linkplain Giorno} composizione giorni  {@linkplain #GIORNI_SETTIMANA} */
+	/** {@value} composizione giorni  {@linkplain #GIORNI_SETTIMANA} */
 	public static final int GIORNI_SETTIMANA = Giorno.values().length;	
 	/** {@value} valore soglia  <b> allarme medio </b>  */
 	private static final int WARNING_MEDIA = 50;
@@ -24,9 +24,9 @@ public class Settimana {
 	private static final int WARNING_PICCO = 75;
 	/** {@linkplain Giorno} di {@linkplain #giornoPicco} */
 	private Giorno giornoPicco;
-	/**{@linkplain #media }  di {@linkplain #media_settimana} */
+	/**<b>Media</b> tra tutti i {@linkplain #campioni} */
 	private int media_settimana;
-	/**{@linkplain #picco }  di {@linkplain #picco_Settimana} */
+	/**E' il valore piu' alto tra tutti {@linkplain #campioni} */
 	private int picco_Settimana;
 	/** <b>Attributo</b> {@linkplain Settimana} che identifica l' {@linkplain Array} di {@linkplain #campioni}*/
 	private Integer[] campioni;
@@ -37,12 +37,7 @@ public class Settimana {
 	 * 
 	 *@param settimanaInserire {@linkplain #campioni}=<code>intera settimana</code>
 	 * 
-	 *@throws IllegalArgumentException se non presenti i campioni di tutta la settimana 
-	 *
-	 * imposta attributo {@link #setMedia_Settimana()}= {@linkplain #media_settimana}
-	 * 
-	 * imposta attributo {@linkplain #setPicco_settimana()}= {@linkplain #picco_Settimana}
-	 *  
+	 *@throws IllegalArgumentException se l'array passato e' composto da piu' (o meno) di {@linkplain #GIORNI_SETTIMANA}
 	 */
 	
 	public Settimana(Integer[] settimanaInserire) {
@@ -55,13 +50,11 @@ public class Settimana {
 	}
 	
 	/**
-	 * <b>metodo</b>per <b>che calcola la media settimanale</b> dei
+	 * <b>Metodo</b> <b>che calcola la media settimanale</b> dei
 	 * {@linkplain campioni}
 	 * <b>imposta attributo</b> {@linkplain #media_settimana}
-	 * {@linkplain #media_settimana}=<code>approssimata per eccesso</code>
-	 * see {@linkplain Settimana} {@linkplain #campioni}
 	 */
-    public void setMedia_Settimana() {
+    private void setMedia_Settimana() {
 		int totaleCampioniSettimanali = 0;
 
 		for (int i = 0; i < campioni.length; i++) {
@@ -114,10 +107,10 @@ public class Settimana {
 	@Override
 	public String toString() {
 		StringBuilder fine = new StringBuilder();
-		fine.append(MEDIA_TRA_CAMPIONI + getMedia_settimana() + Manager.miusraSI);
+		fine.append(MEDIA_TRA_CAMPIONI + getMedia_settimana() + UtilPolveriSottili.miusraSI);
 		if (allarmeMedio())
 			fine.append(WARNING_SUPERATA_SOGLIA_MEDIA + WARNING_MEDIA + ")");
-		fine.append(PICCO_TRA_CAMPIONI + giornoPicco.toString() + " con " + getPicco_Settimana() + Manager.miusraSI);
+		fine.append(PICCO_TRA_CAMPIONI + giornoPicco.toString() + " con " + getPicco_Settimana() + UtilPolveriSottili.miusraSI);
 		if (allarmePicco())
 			fine.append(WARNING_SUPERATA_SOGLIA_MASSIMA + WARNING_PICCO + ")");
 		return fine.toString();

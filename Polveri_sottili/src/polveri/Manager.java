@@ -10,11 +10,7 @@ public class Manager {
 	private static int numero;
 	private static final String INTESTAZIONE_MENU = "" + numero;
 	private static final String[] VOCI_MENU = {"","",};
-	public static final  String miusraSI = "µg/m³";
-
-
-    
-    public void rilevazioni() {
+	public void rilevazioni() {
 		MyMenu rilevazioni = new MyMenu(INTESTAZIONE_MENU + numero, VOCI_MENU);
 		boolean finito = false;
 		do {
@@ -57,6 +53,7 @@ public class Manager {
     
     }
 
+    
 }
     
     	
