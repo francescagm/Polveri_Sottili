@@ -132,4 +132,8 @@ public class Settimana {
 		return fine.toString();
 	}
 
+	public String getGiornoPicco() {
+		return giornoPicco.toString();
+	}
+
 }

@@ -138,8 +138,12 @@ public class Anno {
 	}
 	/** @return {@linkplain String} media PM10 dell'anno di interesse */
 	public String toString() {
-		return String.format("Anno %d, settimane inserite %d. \nLa media di PM10 per quest'anno fin'ora e' %d%s",
-				getAnno_riferimento(), settimane_Inserite(), getMedia_annuale(), UtilPolveriSottili.misuraSI);
+		return String.format("Anno %d, settimane inserite %d. \nLa media di PM10 per quest'anno fin'ora e' %d%s\n",
+				getAnno_riferimento(), settimane_Inserite(), getMedia_annuale(), UtilPolveriSottili.misuraSI,settimanaPiccoString());
 	}
 
+	public String settimanaPiccoString() {
+		Settimana settimana= settimane.get(settConPiccoPiuAlto);
+		return String.format("La settimana con il picco piu' alto e' la numero %d\nIl giorno era %s, ed il valore e' %d", settConPiccoPiuAlto,settimana.getGiornoPicco(),settimana.getPicco_Settimana());
+	}
 }

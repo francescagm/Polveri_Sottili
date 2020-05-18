@@ -63,6 +63,10 @@ public class Archivio_anni {
 	public static boolean contiene(int anno_cercato) {
 		return (cercaPosAnno(anno_cercato) != -1);
 	}
+	
+	public static boolean contiene(Anno anno_cercato) {
+		return contiene(anno_cercato.getAnno_riferimento());
+	}
 	/**
 	  * <b>elimina </b> anno da {@linkplain #anni_archiviati} per <b>anno</b>
 	  * @param anno_daEliminare per cifra

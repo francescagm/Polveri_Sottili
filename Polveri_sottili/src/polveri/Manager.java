@@ -87,7 +87,7 @@ public class Manager {
 			MyMenu menu = new MyMenu(ELIMINAZIONE_ANNO, Manager.ELIMINA_ANNO);
 			switch (menu.scegli()) {
 			case 1: {
-				// ManageArchivio.eliminaCdScelta();
+				Manager.eliminaAnnoScelta();
 				break;
 			}
 			case 2: {
@@ -103,7 +103,6 @@ public class Manager {
 			System.out.println(ARCHIVIO_VUOTO);
 	}
 
-	
 	private static void eliminaAnnoInserimento() {
 		int numeroAnnoDaEl = InputDati.leggiInteroPositivo(INSERISCI_LA_DATA_DA_CERCARE);
 		Anno annoDaEliminare = Archivio_anni.cercaAnno(numeroAnnoDaEl);
@@ -121,23 +120,51 @@ public class Manager {
 			System.out.println("Non esiste l'anno \"" + numeroAnnoDaEl + "\" nell'archivio");
 		}
 	}
-	
+
 	/** ELimina un CD da uno scelti */
-	private static void eliminaCdScelta() {
-		MyMenu sottomenu = new MyMenu(Manager.ELIMINA_ANNO[0],
-				Archivio_anni.visualizzaAnniInArchivio());
+	private static void eliminaAnnoScelta() {
+		MyMenu sottomenu = new MyMenu(Manager.ELIMINA_ANNO[0], Archivio_anni.visualizzaAnniInArchivio());
 		int scelta = sottomenu.scegli();
 		switch (scelta) {
 		case 0:
 			System.out.println(ELIMINAZIONE_ANNULLATA);
 			return;
 		default:
-			if (Archivio_anni.elimina_Anno(Archivio_anni.getAnno(scelta-1)))
-				System.out.println(ELIMINAZIONE_AVVENUTA);
-			else
-				System.out.println(PROBLEMI_NELL_ELIMINAZIONE);
+			Anno daElim = Archivio_anni.getAnno(scelta - 1);
+			if (InputDati.yesOrNo("Sei sicuro di eliminare " + daElim.getAnno_riferimento())) {
+				Archivio_anni.elimina_Anno(daElim);
+				System.out.println("Hai eliminato" + "\n->" + daElim.getAnno_riferimento());
+
+			} else
+				System.out.println(ELIMINAZIONE_ANNULLATA);
 			break;
 		}
 	}
 
+	private static int sceltaAnno(String titoloMenu, String impossibile) {
+		if (Archivio_anni.getNumAnniInArchivio() > 0) {
+			MyMenu scegliAnno = new MyMenu(titoloMenu, Archivio_anni.visualizzaAnniInArchivio());
+			int scelta = scegliAnno.scegli();
+			switch (scelta) {
+			case 0:
+				System.out.println(RICERCA_ANNULLATA);
+				return -1;
+
+			default:
+				if (Archivio_anni.getAnno(scelta - 1).settimane_Inserite() != 0)
+					return scelta - 1;
+				else
+					System.out.println("Anno vuoto senza alcun campionamento" + impossibile);
+				return -2;
+			}
+		} else
+			System.out.println(ARCHIVIO_VUOTO + impossibile);
+		return -2;
+	}
+	
+	private static void modificaSettimana() {
+		if(Archivio_anni.getNumAnniInArchivio() > 0) {
+			
+		}else {}
+	}
 }
