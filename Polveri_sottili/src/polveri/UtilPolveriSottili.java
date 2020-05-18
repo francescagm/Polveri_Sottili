@@ -29,7 +29,7 @@ public class UtilPolveriSottili {
 	}
     /**
      * input dei campioni per una intera settimana 
-     * @return  settimana completa {@linkplain Array} settimanaInserire 
+     * @return  settimana completa  settimanaInserire 
      */
 	public static Settimana creaSettimana() {
 		int[] settimanaInserire= new int [Settimana.GIORNI_SETTIMANA];

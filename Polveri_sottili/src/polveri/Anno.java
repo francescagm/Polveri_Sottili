@@ -95,7 +95,7 @@ public class Anno {
 	 * <b> avvenuta con successo </b> 
 	 * esegue
 	 *         {@linkplain #ricalcolaSettConPiccoPiuAlto()}
-	 *         e{@linkplain #ricalcolaSommaMedia()}
+	 *         {@linkplain #ricalcolaSommaMedia()}
 	 */
 	public boolean modificaSettimana(int numero_settimana, Settimana settimana) {
 		if (existSettimana(numero_settimana)) {
