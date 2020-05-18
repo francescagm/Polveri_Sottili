@@ -58,7 +58,7 @@ public class Anno {
      public boolean inserisciSettimana(Settimana settimana) {
 		if (NUMERO_SETTIMANE_ANNO >= settimane_Inserite()) {
 			settimane.add(settimana);
-			somma_medie += settimana.getMedia_settimana();
+			somma_medie += settimana.getSommaCampioni();
 			calcolasettConPiccoPiuAlto(settimane_Inserite() - 1);
 			return true;
 		}
@@ -99,10 +99,10 @@ public class Anno {
 	 */
 	public boolean modificaSettimana(int numero_settimana, Settimana settimana) {
 		if (existSettimana(numero_settimana)) {
-			somma_medie -= settimane.get(numero_settimana - 1).getMedia_settimana();
+			somma_medie -= settimane.get(numero_settimana - 1).getSommaCampioni();
 			settimane.remove(numero_settimana - 1);
 			settimane.add(numero_settimana - 1, settimana);
-			somma_medie += settimane.get(numero_settimana - 1).getMedia_settimana();
+			somma_medie += settimane.get(numero_settimana - 1).getSommaCampioni();
 			ricalcolaSettConPiccoPiuAlto();
 			return true;
 		}

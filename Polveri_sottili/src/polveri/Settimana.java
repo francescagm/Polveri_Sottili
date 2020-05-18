@@ -52,7 +52,13 @@ public class Settimana {
 
 	}
 
-	
+	public int getSommaCampioni()	{
+		int somma=0;
+		for (int i = 0; i < campioni.length; i++) {
+			somma+=campioni[i];
+		}
+		return somma;
+	}
 
 	/**
 	 * <b>Metodo</b> <b>che calcola la media settimanale</b> dei
