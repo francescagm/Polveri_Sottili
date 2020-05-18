@@ -7,6 +7,10 @@ import java.time.LocalDate;
 import util.mylib.InputDati;
 
 public class UtilPolveriSottili {
+	private final static String frame = "********************************************************";
+	private final static String MESS_GOODBYE = "\n ARRIVEDERCI  \n  ";
+	private final static String MESS_WELCOME = "       CONTROLLO AMBIENTALE\n      rilevamento particolato PM10";
+	
 	/** anno minimo di partenza rilevazioni*/
 	private static final int ANNO_MINIMO = 1950;
 	/** data attuale ultimo inserimento valido*/
@@ -39,4 +43,21 @@ public class UtilPolveriSottili {
 		return (daControllare.equals(controllo));
 	}
 	
+	/**
+	* Prints welcome message
+	*/
+	public static void printWelcome() {
+		System.out.println(frame);
+		System.out.println(MESS_WELCOME);
+		System.out.println(frame);
+	}
+
+	/**
+	 * Prints a goodbye message
+	 */
+	public static void printGoodbye() {
+		System.out.println(frame);
+		System.out.println(MESS_GOODBYE);
+		System.out.println(frame);
+}
 }
