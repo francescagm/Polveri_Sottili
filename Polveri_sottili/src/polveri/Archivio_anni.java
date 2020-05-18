@@ -23,7 +23,7 @@ public class Archivio_anni {
 	   * e in caso contraio lo aggiunge in {@linkplain #anni_archiviati}
 	   * @param nuovo_anno nuovo anno da inserire
 	   * @return <b>conferma</b> inserimento <b>avvenuto con successo</b>
-	   * @see {@linkplain #inserisci_anno(Anno)}
+	   * @see inserisci_anno(Anno)
 	   */	 
 	public static boolean inserisci_anno(int nuovo_anno) {
 		if(!contiene(nuovo_anno))
@@ -44,7 +44,7 @@ public class Archivio_anni {
 	 * <b>metodo ricerca della posizione</b> in{@linkplain #anni_archiviati}
 	 * @param anno_daCercare per numero anno
 	 * @return posizione dell'anno 
-	 * @see metodo   {@linkplain #cercaPosAnno(int)}
+	 * @see cercaPosAnno(int)
 	 */
 	public static int cercaPosAnno(int anno_daCercare) {
 		for (int i = 0; i < anni_archiviati.size(); i++) {
@@ -56,9 +56,8 @@ public class Archivio_anni {
 	}
 	/**
 	 * <b>controlla esistenza per posizione</b> 
-	 * @param anno_cercato per cifre
 	 * @return true se la poszione esiste in{@linkplain #anni_archiviati}
-	 * @see {@linkplain #cercaPosAnno(int)}
+	 * @see cercaPosAnno(int)
 	 */
 	public static boolean contiene(int anno_cercato) {
 		return (cercaPosAnno(anno_cercato) != -1);
@@ -69,7 +68,6 @@ public class Archivio_anni {
 	}
 	/**
 	  * <b>elimina </b> anno da {@linkplain #anni_archiviati} per <b>posizione</b>
-	  * @param pozizione anno da eliminare 
 	  * @return true se l'anno è stato <b>rimosso con successo</b>
 	  */
 	public static boolean elimina_Anno(int anno_daEliminare) {
@@ -83,7 +81,7 @@ public class Archivio_anni {
 	}
 	/**
 	  * <b>elimina </b> anno da {@linkplain #anni_archiviati} per <b>{@linkplain Anno}</b>
-	  * @param anno_daEliminare 
+	  * @param anno_daEliminare  per anno
 	  * @return true se l'anno è stato <b>rimosso con successo</b>
 	  */
 	public static boolean elimina_Anno(Anno anno_daEliminare) {
@@ -100,7 +98,7 @@ public class Archivio_anni {
 	
 	/**<b>metodo per menu</b>
 	 * per uso menu 
-	 * @return un {@linkplain Array} di {@linkplain String}
+	 * @return un  Array di Stringhe
 	 */
 	public static String[] visualizzaAnniInArchivio() {
 		String[] fine=new String[getNumAnniInArchivio()];
@@ -121,7 +119,7 @@ public class Archivio_anni {
 	/**
 	 * <b>metodo</b> che cerca anno per
 	 * <b>posizione </b>
-	 * @param posizione anno in archivio {@linkplain ArrayList} {@linkplain #anni_archiviati}
+	 * @param annoDaCercare per posizione 
 	 * @return anno cercato 
 	 */
 	public static Anno cercaAnno(int annoDaCercare) {
