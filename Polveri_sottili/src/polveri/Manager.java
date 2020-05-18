@@ -126,7 +126,7 @@ public class Manager {
 	private static boolean inserisciSettimana(int posAnno) {
 		Settimana daInserire = UtilPolveriSottili.creaSettimana();
 		if (Archivio_anni.getAnno(posAnno).inserisciSettimana(daInserire)) {
-			System.out.println(String.format("Settimana n %d correttamente", Archivio_anni.getAnno(posAnno).settimane_Inserite()));
+			System.out.println(String.format("Settimana n %d correttamente inserita ", Archivio_anni.getAnno(posAnno).settimane_Inserite()));
 			System.out.println(daInserire.toString());
 			return true;
 		} else {

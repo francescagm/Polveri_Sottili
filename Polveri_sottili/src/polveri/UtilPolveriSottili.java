@@ -9,7 +9,7 @@ import util.mylib.InputDati;
 public class UtilPolveriSottili {
 	private final static String frame = "********************************************************";
 	private final static String MESS_GOODBYE = "\n ARRIVEDERCI  \n  ";
-	private final static String MESS_WELCOME = "       CONTROLLO AMBIENTALE\n      rilevamento particolato PM10";
+	private final static String MESS_WELCOME = "       CONTROLLO AMBIENTALE\n       rilevamento particolato PM10";
 	
 	/** anno minimo di partenza rilevazioni*/
 	private static final int ANNO_MINIMO = 1950;
