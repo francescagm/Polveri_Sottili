@@ -2,51 +2,19 @@ package polveri;
 
 import java.time.LocalDate;
 
-
+import my.archivioCD.ManageArchivio;
 import util.mylib.*;
 
 public class Manager {
+	private static final String ARCHIVIO_VUOTO = "Archivio vuoto";
+	private static final String ELIMINAZIONE_ANNO = "ELIMINAZIONE ANNO";
+	private static final String INSERISCI_LA_DATA_DA_CERCARE = "Inserisci la data da cercare";
+	private static final String ELIMINAZIONE_ANNULLATA = "Eliminazione annullata";
 	private static final String RICERCA_ANNULLATA = "Ricerca annullata ";
 	private static final String VUOI_RIPROVARE = "Vuoi riprovare? ";
-	private static int numero;
-	private static final String INTESTAZIONE_MENU = "" + numero;
-	private static final String[] VOCI_MENU = { "", "", };
-
-	public void rilevazioni() {
-		MyMenu rilevazioni = new MyMenu(INTESTAZIONE_MENU + numero, VOCI_MENU);
-		boolean finito = false;
-		do {
-			int scelta = rilevazioni.scegli();
-			switch (scelta) {
-			case 0:
-				finito = true;
-				break;
-
-			case 1:
-				System.out.println("inserisci campioni settimana per controllo");
-
-				break;
-			case 2:
-				// piu settimane o solo sopra o while sopra
-				break;
-			case 3:
-				// notifica situazione annuale richiamando le rilavaizoni inplementate
-				break;
-
-			}
-		} while (!finito);
-	}
-
-	//
-	// public static void aggiungiSettimana(){
-	//
-	// int anno =InputDati.leggiIntero(INSERIRE_ANNO, ANNO_MINIMO, ULTIMO_ANNO);
-	// int settimanaRiferimento =InputDati.leggiIntero(NUMERO_SETTIMANA,
-	// NUMERO_MINIMO_SETTIMANA, NUMERO_SETTIMANE_ANNO);
-	// Integer[]rilevazione = new Integer[]
-	// for
-	//
-	// }
+	private static final String[] ELIMINA_ANNO = { "Elimina per scelta", "Elimina per inserimento" };
+	private static final String ELIMINAZIONE_AVVENUTA = "Eliminazione avvenuta";
+	private static final String PROBLEMI_NELL_ELIMINAZIONE = "";
 
 	public static void inserisciAnno() {
 		Anno daInserire = null;
@@ -94,9 +62,9 @@ public class Manager {
 				break;
 			}
 		} else {
-			System.out.println("Archivio vuoto");
+			System.out.println(ARCHIVIO_VUOTO);
 			if (InputDati.yesOrNo("Vuoi inserire un nuovo Anno da campionare?"))
-				inserisciAnno();
+				Manager.inserisciAnno();
 		}
 	}
 
@@ -110,6 +78,65 @@ public class Manager {
 			System.out.println("L'anno e tutte le sue settimane sono gia' state campionate");
 			System.out.println("Impossibile aggiungerne altre");
 			return false;
+		}
+	}
+
+	/** Menu di eliminazione CD */
+	private static void eliminaAnno() {
+		if (Archivio_anni.getNumAnniInArchivio() > 0) {
+			MyMenu menu = new MyMenu(ELIMINAZIONE_ANNO, Manager.ELIMINA_ANNO);
+			switch (menu.scegli()) {
+			case 1: {
+				// ManageArchivio.eliminaCdScelta();
+				break;
+			}
+			case 2: {
+				Manager.eliminaAnnoInserimento();
+				break;
+			}
+
+			default:
+				System.out.println(ELIMINAZIONE_ANNULLATA);
+				break;
+			}
+		} else
+			System.out.println(ARCHIVIO_VUOTO);
+	}
+
+	
+	private static void eliminaAnnoInserimento() {
+		int numeroAnnoDaEl = InputDati.leggiInteroPositivo(INSERISCI_LA_DATA_DA_CERCARE);
+		Anno annoDaEliminare = Archivio_anni.cercaAnno(numeroAnnoDaEl);
+		if (annoDaEliminare != null) {
+			System.out.println("Sei sicuro di eliminare l'" + annoDaEliminare.getAnno_riferimento()
+					+ ".\nI suoi dati sono:" + annoDaEliminare.toString());
+
+			if (InputDati.yesOrNo("")
+					&& UtilPolveriSottili.controlloEliminazione(annoDaEliminare.getAnno_riferimento() + "elimina")) {
+				Archivio_anni.elimina_Anno(annoDaEliminare.getAnno_riferimento());
+				System.out.println("Hai eliminato" + "\n->" + annoDaEliminare.getAnno_riferimento());
+			} else
+				System.out.println(ELIMINAZIONE_ANNULLATA);
+		} else {
+			System.out.println("Non esiste l'anno \"" + numeroAnnoDaEl + "\" nell'archivio");
+		}
+	}
+	
+	/** ELimina un CD da uno scelti */
+	private static void eliminaCdScelta() {
+		MyMenu sottomenu = new MyMenu(Manager.ELIMINA_ANNO[0],
+				Archivio_anni.visualizzaAnniInArchivio());
+		int scelta = sottomenu.scegli();
+		switch (scelta) {
+		case 0:
+			System.out.println(ELIMINAZIONE_ANNULLATA);
+			return;
+		default:
+			if (Archivio_anni.elimina_Anno(Archivio_anni.getAnno(scelta-1)))
+				System.out.println(ELIMINAZIONE_AVVENUTA);
+			else
+				System.out.println(PROBLEMI_NELL_ELIMINAZIONE);
+			break;
 		}
 	}
 
