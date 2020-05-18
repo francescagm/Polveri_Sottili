@@ -128,4 +128,17 @@ public class Archivio_anni {
 		return anni_archiviati.get(cercaPosAnno(annoDaCercare));
 	}
 	
+	public static String toStringa() {
+
+		if(getNumAnniInArchivio()>0) {
+		StringBuilder fine =new StringBuilder();
+		for (int i = 0; i < anni_archiviati.size(); i++) {
+			fine.append(anni_archiviati.get(i).toString());
+			fine.append("\n");
+		}
+		return fine.toString();
+		}else {
+			return "vuoto";
+		}
+	}
 }

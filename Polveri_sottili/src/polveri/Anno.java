@@ -71,6 +71,10 @@ public class Anno {
 		return settimane.size();
 	}
     
+	public Settimana getSettimana(int index) {
+		return settimane.get(index);
+	}
+	
 	/**
 	 * <b>verifica settimana per numero </b> in {@linkplain #settimane_Inserite()} 
 	 * @param numero_settimana numero della settimana in {@linkplain #anno_riferimento}

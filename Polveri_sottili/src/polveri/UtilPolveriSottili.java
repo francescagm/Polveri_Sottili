@@ -34,7 +34,7 @@ public class UtilPolveriSottili {
 	public static Settimana creaSettimana() {
 		int[] settimanaInserire= new int [Settimana.GIORNI_SETTIMANA];
 		for (int i = 0; i < Settimana.GIORNI_SETTIMANA; i++) {
-			settimanaInserire[i]=(InputDati.leggiInteroConMinimo("Inserisci il valore di PM10 per "+Giorno.values()[i], 0));
+			settimanaInserire[i]=(InputDati.leggiInteroConMinimo("Inserisci il valore di PM10 per "+Giorno.values()[i]+" ", 0));
 		}
 		return new Settimana(settimanaInserire);
 	}

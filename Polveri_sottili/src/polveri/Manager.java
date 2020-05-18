@@ -34,7 +34,8 @@ public class Manager {
 				Manager.inserisciInArchivio();
 				break;
 
-			
+			case 2: Manager.visualizzaArchivio();
+			break;
 			case 0:
 				finito = true;
 				break;
@@ -98,7 +99,7 @@ public class Manager {
 			}
 			strDaVisu[anniInArchivio.length] = "Anno non presente";
 
-			MyMenu anni = new MyMenu("A che anno inseririre una nuova settimana?", strDaVisu);
+			MyMenu anni = new MyMenu("A che anno inseririre una nuova settimana? ", strDaVisu);
 			int scelta = anni.scegli();
 			if (scelta == strDaVisu.length) {
 				System.out.println("Inserisci allora un nuovo Anno nell'archivio");
@@ -125,7 +126,8 @@ public class Manager {
 	private static boolean inserisciSettimana(int posAnno) {
 		Settimana daInserire = UtilPolveriSottili.creaSettimana();
 		if (Archivio_anni.getAnno(posAnno).inserisciSettimana(daInserire)) {
-			System.out.println("Settimana inserita correttamente");
+			System.out.println(String.format("Settimana n %d correttamente", Archivio_anni.getAnno(posAnno).settimane_Inserite()));
+			System.out.println(daInserire.toString());
 			return true;
 		} else {
 			System.out.println("L'anno e tutte le sue settimane sono gia' state campionate");
@@ -225,7 +227,7 @@ public class Manager {
 						"Che numero di settimana vuoi modificare? MAX " + settimaneInserite, 0, settimaneInserite);
 				Settimana settimanaDaInserire = UtilPolveriSottili.creaSettimana();
 				if (Archivio_anni.getAnno(pos).modificaSettimana(settimanaDaModificare, settimanaDaInserire))
-					System.out.println("Settimana Eliminata con successo");
+					System.out.println("Settimana modificata con successo");
 				else
 					System.out.println("Problemi di modifica");
 			}
@@ -234,5 +236,7 @@ public class Manager {
 		}
 	}
 	
-	//private static void visualizza
+	private static void visualizzaArchivio() {
+		System.out.println(Archivio_anni.toStringa());
+	}
 }
