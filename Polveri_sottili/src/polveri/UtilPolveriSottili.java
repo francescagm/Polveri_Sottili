@@ -16,7 +16,7 @@ public class UtilPolveriSottili {
 	/** data attuale ultimo inserimento valido*/
 	private static final int ULTIMO_ANNO = LocalDate.now().getYear();
 	/**{@value} */
-	private static final String NUMERO_SETTIMANA = "inserire il numero della settimana nell'anno di riferimento";
+	private static final String NUMERO_SETTIMANA = "inserire il numero della settimana nell'anno di riferimento ";
 	/**{@value} */
 	private static final String INSERIRE_ANNO = "Inserire anno di riferimento del campionamento ";
 	/**unità di misura per particolato atmosferico */

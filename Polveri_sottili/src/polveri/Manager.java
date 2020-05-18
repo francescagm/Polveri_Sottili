@@ -75,7 +75,7 @@ public class Manager {
 		while (true) {
 			daInserire = UtilPolveriSottili.creaAnno();
 			if (Archivio_anni.inserisci_anno(daInserire)) {
-				System.out.println("Anno inserito correttamente");
+				System.out.println("Anno inserito correttamente ");
 				int pos = Archivio_anni.cercaPosAnno(daInserire.getAnno_riferimento());
 				while (inserisciSettimana(pos)) {
 					if (!InputDati.yesOrNo("Vuoi inserire una nuova settimana? "))
@@ -102,7 +102,7 @@ public class Manager {
 			MyMenu anni = new MyMenu("A che anno inseririre una nuova settimana? ", strDaVisu);
 			int scelta = anni.scegli();
 			if (scelta == strDaVisu.length) {
-				System.out.println("Inserisci allora un nuovo Anno nell'archivio");
+				System.out.println("Inserisci allora un nuovo Anno nell'archivio ");
 				inserisciAnno();
 				return;
 			}
@@ -117,7 +117,7 @@ public class Manager {
 			}
 		} else {
 			System.out.println(ARCHIVIO_VUOTO);
-			if (InputDati.yesOrNo("Vuoi inserire un nuovo Anno da campionare?"))
+			if (InputDati.yesOrNo("Vuoi inserire un nuovo Anno da campionare? "))
 				Manager.inserisciAnno();
 		}
 	}
@@ -130,8 +130,8 @@ public class Manager {
 			System.out.println(daInserire.toString());
 			return true;
 		} else {
-			System.out.println("L'anno e tutte le sue settimane sono gia' state campionate");
-			System.out.println("Impossibile aggiungerne altre");
+			System.out.println("L'anno e tutte le sue settimane sono gia' state campionate ");
+			System.out.println("Impossibile aggiungerne altre ");
 			return false;
 		}
 	}
@@ -224,7 +224,7 @@ public class Manager {
 				Anno annoDaModificare = Archivio_anni.getAnno(pos);
 				int settimaneInserite = annoDaModificare.settimane_Inserite();
 				int settimanaDaModificare = InputDati.leggiIntero(
-						"Che numero di settimana vuoi modificare? MAX " + settimaneInserite, 0, settimaneInserite);
+						"Che numero di settimana vuoi modificare? MAX " + settimaneInserite+" ", 0, settimaneInserite);
 				Settimana settimanaDaInserire = UtilPolveriSottili.creaSettimana();
 				if (Archivio_anni.getAnno(pos).modificaSettimana(settimanaDaModificare, settimanaDaInserire))
 					System.out.println("Settimana modificata con successo");
