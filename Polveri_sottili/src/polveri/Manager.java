@@ -6,9 +6,13 @@ import java.time.LocalDate;
 import util.mylib.*;
 
 public class Manager {
+	/** {@value}*/
 	private static final String RICERCA_ANNULLATA = "Ricerca annullata ";
+	/** {@value}*/
 	private static final String VUOI_RIPROVARE = "Vuoi riprovare? ";
+	/** {@value}*/
 	private static int numero;
+	
 	private static final String INTESTAZIONE_MENU = "" + numero;
 	private static final String[] VOCI_MENU = { "", "", };
 
