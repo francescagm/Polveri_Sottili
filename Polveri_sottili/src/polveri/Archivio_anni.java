@@ -41,8 +41,8 @@ public class Archivio_anni {
 		return inserisci_anno(anno.getAnno_riferimento());
 	}
 	/**
-	 * <b>metodo ricerca posizione</b> in{@linkplain #anni_archiviati}
-	 * @param anno_daCercare 
+	 * <b>metodo ricerca della posizione</b> in{@linkplain #anni_archiviati}
+	 * @param anno_daCercare per numero anno
 	 * @return posizione dell'anno 
 	 * @see metodo   {@linkplain #cercaPosAnno(int)}
 	 */
@@ -68,8 +68,8 @@ public class Archivio_anni {
 		return contiene(anno_cercato.getAnno_riferimento());
 	}
 	/**
-	  * <b>elimina </b> anno da {@linkplain #anni_archiviati} per <b>anno</b>
-	  * @param anno_daEliminare per cifra
+	  * <b>elimina </b> anno da {@linkplain #anni_archiviati} per <b>posizione</b>
+	  * @param pozizione anno da eliminare 
 	  * @return true se l'anno è stato <b>rimosso con successo</b>
 	  */
 	public static boolean elimina_Anno(int anno_daEliminare) {
@@ -98,9 +98,9 @@ public class Archivio_anni {
 		return anni_archiviati.size();
 	}
 	
-	/**
-	 * 
-	 * @return  numero anni in archivio 
+	/**<b>metodo per menu</b>
+	 * per uso menu 
+	 * @return un {@linkplain Array} di {@linkplain String}
 	 */
 	public static String[] visualizzaAnniInArchivio() {
 		String[] fine=new String[getNumAnniInArchivio()];
@@ -110,15 +110,20 @@ public class Archivio_anni {
 		return fine;
 	}
 	/**
-	 * <b>metodo</b> per ottenere
-	 * <b>indice anno</b>
+	 * <b>metodo</b> che cerca anno per
+	 * <b>indice </b>
 	 * @param index indice archivio {@linkplain ArrayList} {@linkplain #anni_archiviati}
-	 * @return indice
+	 * @return anno cercato 
 	 */
 	public static Anno getAnno(int index) {
 		return anni_archiviati.get(index);
 	}
-	
+	/**
+	 * <b>metodo</b> che cerca anno per
+	 * <b>posizione </b>
+	 * @param posizione anno in archivio {@linkplain ArrayList} {@linkplain #anni_archiviati}
+	 * @return anno cercato 
+	 */
 	public static Anno cercaAnno(int annoDaCercare) {
 		return anni_archiviati.get(cercaPosAnno(annoDaCercare));
 	}
