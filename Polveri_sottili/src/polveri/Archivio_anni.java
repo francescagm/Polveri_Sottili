@@ -8,7 +8,7 @@ public class Archivio_anni {
 	private Archivio_anni() {
 
 	}
-
+  /** @*/
 	public static boolean inserisci_anno(int nuovo_anno) {
 		if(!contiene(nuovo_anno))
 		return anni_archiviati.add(new Anno(nuovo_anno));
