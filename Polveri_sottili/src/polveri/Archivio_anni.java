@@ -42,7 +42,7 @@ public class Archivio_anni {
 	}
 	/**
 	 * <b>metodo ricerca posizione</b> in{@linkplain #anni_archiviati}
-	 * @param anno_daCercare  numero anno da cercare 
+	 * @param anno_daCercare 
 	 * @return posizione dell'anno 
 	 * @see metodo   {@linkplain #cercaPosAnno(int)}
 	 */
@@ -56,7 +56,7 @@ public class Archivio_anni {
 	}
 	/**
 	 * <b>controlla esistenza per posizione</b> 
-	 * @param anno_cercato per numero posizione
+	 * @param anno_cercato per cifre
 	 * @return true se la poszione esiste in{@linkplain #anni_archiviati}
 	 * @see {@linkplain #cercaPosAnno(int)}
 	 */
@@ -64,8 +64,8 @@ public class Archivio_anni {
 		return (cercaPosAnno(anno_cercato) != -1);
 	}
 	/**
-	  * <b>elimina </b> anno da {@linkplain #anni_archiviati} per <b>posizione</b>
-	  * @param anno_daEliminare per numero 
+	  * <b>elimina </b> anno da {@linkplain #anni_archiviati} per <b>anno</b>
+	  * @param anno_daEliminare per cifra
 	  * @return true se l'anno è stato <b>rimosso con successo</b>
 	  */
 	public static boolean elimina_Anno(int anno_daEliminare) {
@@ -77,11 +77,14 @@ public class Archivio_anni {
 		return false;
 
 	}
-/**
- * <b>metodo</b> per ottenere
- * <b>dimensione archivio</b>
- * @return dimensione {@linkplain ArrayList} {@linkplain #anni_archiviati}
- */
+	/**
+	  * <b>elimina </b> anno da {@linkplain #anni_archiviati} per <b>{@linkplain Anno}</b>
+	  * @param anno_daEliminare 
+	  * @return true se l'anno è stato <b>rimosso con successo</b>
+	  */
+	public static boolean elimina_Anno(Anno anno_daEliminare) {
+		return elimina_Anno(anno_daEliminare.getAnno_riferimento());
+	}
 /**
  * <b>metodo</b> per ottenere
  * <b>dimensione archivio</b>
