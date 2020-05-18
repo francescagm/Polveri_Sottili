@@ -3,7 +3,7 @@ package polveri;
 import java.util.ArrayList;
 
 public class Archivio_anni {
-	public static ArrayList<Anno> anni_archiviati = new ArrayList<>();
+	private static ArrayList<Anno> anni_archiviati = new ArrayList<>();
 
 	private Archivio_anni() {
 
@@ -41,4 +41,23 @@ public class Archivio_anni {
 		return false;
 
 	}
+	
+	public static int getNumAnniInArchivio() {
+		return anni_archiviati.size();
+	}
+	
+	public static String[] visualizzaAnniInArchivio() {
+		String[] fine=new String[getNumAnniInArchivio()];
+		for (int i=0;i<getNumAnniInArchivio();i++) {
+			fine[i]=Integer.toString(anni_archiviati.get(i).getAnno_riferimento());
+		}
+		return fine;
+	}
+	
+	public static Anno getAnno(int index) {
+		return anni_archiviati.get(index);
+	}
+	
+	
+	
 }

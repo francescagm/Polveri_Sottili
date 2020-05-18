@@ -31,7 +31,7 @@ public class Settimana {
 	 * <b>Attributo</b> {@linkplain Settimana} che identifica l' {@linkplain Array}
 	 * di {@linkplain #campioni}
 	 */
-	private Integer[] campioni;
+	private int[] campioni;
 
 	/**
 	 * <b>Costruttore</b> viene istanziato un oggetto di tipo {@linkplain #campioni}
@@ -43,7 +43,7 @@ public class Settimana {
 	 *                                  meno) di {@linkplain #GIORNI_SETTIMANA}
 	 */
 
-	public Settimana(Integer[] settimanaInserire) {
+	public Settimana(int[] settimanaInserire) {
 		if (settimanaInserire.length != GIORNI_SETTIMANA)
 			throw new IllegalArgumentException(IMPOSSIBILE_COSTRUIRE_SETTIMANA);
 		campioni = settimanaInserire;
@@ -51,6 +51,8 @@ public class Settimana {
 		setPicco_settimana();
 
 	}
+
+	
 
 	/**
 	 * <b>Metodo</b> <b>che calcola la media settimanale</b> dei
@@ -114,11 +116,11 @@ public class Settimana {
 	@Override
 	public String toString() {
 		StringBuilder fine = new StringBuilder();
-		fine.append(MEDIA_TRA_CAMPIONI + getMedia_settimana() + UtilPolveriSottili.miusraSI);
+		fine.append(MEDIA_TRA_CAMPIONI + getMedia_settimana() + UtilPolveriSottili.misuraSI);
 		if (allarmeMedio())
 			fine.append(WARNING_SUPERATA_SOGLIA_MEDIA + WARNING_MEDIA + ")");
 		fine.append(PICCO_TRA_CAMPIONI + giornoPicco.toString() + " con " + getPicco_Settimana()
-				+ UtilPolveriSottili.miusraSI);
+				+ UtilPolveriSottili.misuraSI);
 		if (allarmePicco())
 			fine.append(WARNING_SUPERATA_SOGLIA_MASSIMA + WARNING_PICCO + ")");
 		return fine.toString();

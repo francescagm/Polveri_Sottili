@@ -8,7 +8,7 @@ public class Anno {
 	public static final int NUMERO_SETTIMANE_ANNO = 53;
 	private int anno_riferimento;
 	private int somma_medie;
-	private Settimana settConPiccoPiuAlto;
+	private int settConPiccoPiuAlto = -1;
 
 	public int getAnno_riferimento() {
 		return anno_riferimento;
@@ -22,9 +22,10 @@ public class Anno {
 
 	public boolean inserisciSettimana(Settimana settimana) {
 		if (NUMERO_SETTIMANE_ANNO >= settimane_Inserite()) {
-			calcolasettConPiccoPiuAlto(settimana);
+			settimane.add(settimana);
 			somma_medie += settimana.getMedia_settimana();
-			return settimane.add(settimana);
+			calcolasettConPiccoPiuAlto(settimane_Inserite() - 1);
+			return true;
 		}
 		return false;
 
@@ -42,36 +43,30 @@ public class Anno {
 
 	public boolean modificaSettimana(int numero_settimana, Settimana settimana) {
 		if (existSettimana(numero_settimana)) {
+			somma_medie -= settimane.get(numero_settimana - 1).getMedia_settimana();
 			settimane.remove(numero_settimana - 1);
 			settimane.add(numero_settimana - 1, settimana);
-			ricalcolaSommaMedia();
+			somma_medie += settimane.get(numero_settimana - 1).getMedia_settimana();
 			ricalcolaSettConPiccoPiuAlto();
 			return true;
 		}
 		return false;
 	}
 
-	private void ricalcolaSommaMedia() {
-		int totaleCapioniSettimana = 0;
-		for (int i = 0; i < settimane.size(); i++) {
-			totaleCapioniSettimana += settimane.get(i).getMedia_settimana();
-		}
-		somma_medie = totaleCapioniSettimana;
-	}
-
-	private void calcolasettConPiccoPiuAlto(Settimana settimana) {
-		if (this.settConPiccoPiuAlto == null)
-			this.settConPiccoPiuAlto = settimana;
+	private void calcolasettConPiccoPiuAlto(int nSettimana) {
+		if (this.settConPiccoPiuAlto == -1)
+			this.settConPiccoPiuAlto = nSettimana;
 		else {
-			if (settimana.getPicco_Settimana() > this.settConPiccoPiuAlto.getPicco_Settimana())
-				this.settConPiccoPiuAlto = settimana;
+			if (settimane.get(nSettimana).getPicco_Settimana() > settimane.get(settConPiccoPiuAlto)
+					.getPicco_Settimana())
+				this.settConPiccoPiuAlto = nSettimana;
 		}
 	}
 
 	private void ricalcolaSettConPiccoPiuAlto() {
-		settConPiccoPiuAlto = null;
-		for (Settimana settimana : settimane) {
-			calcolasettConPiccoPiuAlto(settimana);
+		settConPiccoPiuAlto = -1;
+		for (int i = 0; i < settimane.size(); i++) {
+			calcolasettConPiccoPiuAlto(i);
 		}
 	}
 
@@ -81,7 +76,7 @@ public class Anno {
 
 	public String toString() {
 		return String.format("Anno %d, settimane inserite %d. \nLa media di PM10 per quest'anno fin'ora e' %d%s",
-				getAnno_riferimento(), settimane_Inserite(), getMedia_annuale(), UtilPolveriSottili.miusraSI);
+				getAnno_riferimento(), settimane_Inserite(), getMedia_annuale(), UtilPolveriSottili.misuraSI);
 	}
 
 }
