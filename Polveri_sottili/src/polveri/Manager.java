@@ -2,7 +2,7 @@ package polveri;
 
 import java.time.LocalDate;
 
-import my.archivioCD.ManageArchivio;
+
 import util.mylib.*;
 
 public class Manager {
@@ -16,11 +16,60 @@ public class Manager {
 	private static final String ELIMINAZIONE_AVVENUTA = "Eliminazione avvenuta";
 	private static final String PROBLEMI_NELL_ELIMINAZIONE = "";
 
-	
-	public
-	
-	
-	public static void inserisciAnno() {
+	private static final String[] inserisciInArchivio = { "Inserisci anno", "Inserisci settimane", "Elimina un anno",
+			"Modifica settimana" };
+	private static final String[] VOCI = { "Aggiorna archivio", "Visualizza Archivio" };
+	private static final MyMenu menu = new MyMenu("Main Menu", VOCI);
+
+	/** Metodo per usare il Manager */
+	public static void startManager() {
+		Manager.mainMenu();
+	}
+
+	private static void mainMenu() {
+		boolean finito = false;
+		do {
+			switch (menu.scegli()) {
+			case 1:
+				Manager.inserisciInArchivio();
+				break;
+
+			
+			case 0:
+				finito = true;
+				break;
+			default:
+				System.out.println("ERRORE");
+				break;
+			}
+
+		} while (!finito);
+
+	}
+
+	private static void inserisciInArchivio() {
+
+		MyMenu menu = new MyMenu("Inserisci in archivio", inserisciInArchivio);
+		switch (menu.scegli()) {
+		case 1:
+			inserisciAnno();
+			break;
+		case 2:
+			inserimentoSettimana();
+			break;
+
+		case 3:
+			eliminaAnno();
+			break;
+		case 4:
+			modificaSettimana();
+			break;
+		default:
+			break;
+		}
+	}
+
+	private static void inserisciAnno() {
 		Anno daInserire = null;
 		while (true) {
 			daInserire = UtilPolveriSottili.creaAnno();
@@ -40,7 +89,7 @@ public class Manager {
 
 	}
 
-	public static void inserimentoSettimana() {
+	private static void inserimentoSettimana() {
 		if (Archivio_anni.getNumAnniInArchivio() > 0) {
 			String[] anniInArchivio = Archivio_anni.visualizzaAnniInArchivio();
 			String[] strDaVisu = new String[anniInArchivio.length + 1];
@@ -165,22 +214,25 @@ public class Manager {
 			System.out.println(ARCHIVIO_VUOTO + impossibile);
 		return -2;
 	}
-	
+
 	private static void modificaSettimana() {
-		if(Archivio_anni.getNumAnniInArchivio() > 0) {
-			int pos=Manager.sceltaAnno("Scegli che anno", "Impossibile modificare Settimane");
-			if(pos>=0) {
-				Anno annoDaModificare=Archivio_anni.getAnno(pos);
-				int settimaneInserite=annoDaModificare.settimane_Inserite();
-				int settimanaDaModificare=InputDati.leggiIntero("Che numero di settimana vuoi modificare? MAX "+settimaneInserite, 0, settimaneInserite);
-				Settimana settimanaDaInserire= UtilPolveriSottili.creaSettimana();
-				if(Archivio_anni.getAnno(pos).modificaSettimana(settimanaDaModificare, settimanaDaInserire))
+		if (Archivio_anni.getNumAnniInArchivio() > 0) {
+			int pos = Manager.sceltaAnno("Scegli che anno", "Impossibile modificare Settimane");
+			if (pos >= 0) {
+				Anno annoDaModificare = Archivio_anni.getAnno(pos);
+				int settimaneInserite = annoDaModificare.settimane_Inserite();
+				int settimanaDaModificare = InputDati.leggiIntero(
+						"Che numero di settimana vuoi modificare? MAX " + settimaneInserite, 0, settimaneInserite);
+				Settimana settimanaDaInserire = UtilPolveriSottili.creaSettimana();
+				if (Archivio_anni.getAnno(pos).modificaSettimana(settimanaDaModificare, settimanaDaInserire))
 					System.out.println("Settimana Eliminata con successo");
 				else
 					System.out.println("Problemi di modifica");
 			}
-		}else {
+		} else {
 			System.out.println("Archivio vuoto");
 		}
 	}
+	
+	//private static void visualizza
 }
