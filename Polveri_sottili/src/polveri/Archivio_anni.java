@@ -77,7 +77,11 @@ public class Archivio_anni {
 		return false;
 
 	}
-	
+/**
+ * <b>metodo</b> per ottenere
+ * <b>dimensione archivio</b>
+ * @return dimensione {@linkplain ArrayList} {@linkplain #anni_archiviati}
+ */
 /**
  * <b>metodo</b> per ottenere
  * <b>dimensione archivio</b>

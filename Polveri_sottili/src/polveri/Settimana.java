@@ -112,7 +112,13 @@ public class Settimana {
 		return (picco_Settimana >= WARNING_PICCO);
 
 	}
-
+	
+	/**
+	 * @return una {@linkplain String} che
+	 *  <b>contiene </b> {@linkplain #media_settimana} {@linkplain #giornoPicco}
+	 *  <b>avvisa</b> se {@linkplain #WARNING_SUPERATA_SOGLIA_MEDIA} {@linkplain #WARNING_SUPERATA_SOGLIA_MASSIMA}
+	 * 
+	 */
 	@Override
 	public String toString() {
 		StringBuilder fine = new StringBuilder();
