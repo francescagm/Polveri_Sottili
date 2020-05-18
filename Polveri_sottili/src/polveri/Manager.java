@@ -51,7 +51,7 @@ public class Manager {
 	// for
 	//
 	// }
-
+  /** inserimento dell ANNO di campionamento */
 	public static void inserisciAnno() {
 		Anno daInserire = null;
 		while (true) {
@@ -71,7 +71,7 @@ public class Manager {
 		}
 
 	}
-
+	 /** inserimento della settimana  di campionamento */
 	public static void inserimentoSettimana() {
 		if (Archivio_anni.getNumAnniInArchivio() > 0) {
 			String[] anniInArchivio = Archivio_anni.visualizzaAnniInArchivio();

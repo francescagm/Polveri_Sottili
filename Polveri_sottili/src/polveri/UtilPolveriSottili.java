@@ -3,8 +3,8 @@ package polveri;
 import java.time.LocalDate;
 
 
-
 import util.mylib.InputDati;
+/** classe utilita'per IO */
 
 public class UtilPolveriSottili {
 	/** anno minimo di partenza rilevazioni*/
