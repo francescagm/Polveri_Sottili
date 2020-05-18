@@ -2,7 +2,7 @@ package polveri;
 
 import java.time.LocalDate;
 
-import my.archivioCD.ManageArchivio;
+
 import util.mylib.*;
 
 public class Manager {

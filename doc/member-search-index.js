@@ -1,1 +1,1 @@
-memberSearchIndex = [{"p":"polveri","c":"Manager","l":"inserimentoSettimana()"},{"p":"polveri","c":"Manager","l":"inserisciAnno()"},{"p":"polveri","c":"Manager","l":"Manager()","url":"%3Cinit%3E()"},{"p":"polveri","c":"Manager","l":"rilevazioni()"}]
+memberSearchIndex = [{"p":"polveri","c":"Manager","l":"inserimentoSettimana()"},{"p":"polveri","c":"Manager","l":"inserisciAnno()"},{"p":"polveri","c":"Manager","l":"Manager()","url":"%3Cinit%3E()"}]
